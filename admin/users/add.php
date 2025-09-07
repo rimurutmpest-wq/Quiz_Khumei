@@ -36,6 +36,7 @@ if(isset($_POST['simpan'])){
         <option value="1">Admin</option>
         <option value="2">User Biasa</option>
     </select><br><br>
+    <button type="submit" name="simpan">Simpan</button>
 </form>
 <br>
 <a href="index.php">Kembali</a>

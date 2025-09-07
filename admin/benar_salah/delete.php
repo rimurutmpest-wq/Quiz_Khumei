@@ -5,7 +5,7 @@ cekAdmin();
 cekLogin();
 
 $id = $_GET['id'];
-mysqli_query($conn, "DELETE FROM soalbs WHERE id_soal=$id");
+mysqli_query($conn, "DELETE FROM soalbs WHERE id_soalbs=$id");
 
 header("Location: index.php");
 exit;

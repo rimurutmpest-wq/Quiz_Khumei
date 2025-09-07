@@ -46,7 +46,7 @@ if(isset($_POST['submit'])){
         }
     }
 
-    echo "<h3>Hasil:<h3>";
+    echo "<h3>Hasil:</h3>";
     echo "Benar: $benar<br>";
     echo "Salah: $salah<br>";
 }

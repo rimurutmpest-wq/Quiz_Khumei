@@ -11,10 +11,10 @@ $result = mysqli_query($conn, "SELECT * FROM soalbs");
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kelola Soal Pilihan Ganda</title>
+    <title>Kelola Soal Benar/Salah</title>
 </head>
 <body>
-    <h2>Daftar Soal Pilihan Ganda</h2>
+    <h2>Daftar Soal Benar/Salah</h2>
     <a href="add.php">+Tambah Soal</a>
     <a href="../index.php">Kembali ke Dashboard</a>
     <br><br>

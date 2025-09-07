@@ -20,8 +20,10 @@ if (isset($_POST['login'])){
 
         if ($row['lvl'] == 1){
             header("Location: admin/index.php");
+        } else if($row['lvl'] == 2){
+            header("Location: user/index.php");
         } else {
-            $error = "Hanya admin yang bisa login!";
+            $error = "Level user tidak valid!";
         }
         exit;
     } else {

@@ -22,10 +22,10 @@ if (isset($_POST['update'])){
 }
 ?>
 
-<h2>Edit Soal Pilihan Ganda</h2>
+<h2>Edit User</h2>
 <form action="" method="post">
     <label>Nama</label><br>
-    <textarea name="nama_user" required><?= $data['nama_user']; ?></textarea><br><br>
+    <input type="text" name="nama_user" value="<?= $data['nama_user']; ?>" required><br><br>
 
     <label>Username</label><br>
     <input type="text" name="username" value="<?= $data['username']; ?>" required><br><br>
@@ -35,8 +35,8 @@ if (isset($_POST['update'])){
 
     <label>Level</label><br>
     <select name="lvl" id="" required>
-        <option value="1"><?= $data['lvl']==1 ? "selected" : ""; ?>>Admin</option>
-        <option value="2"><?= $data['lvl']==2 ? "selected" : ""; ?>>User Biasa</option>
+        <option value="1" <?= $data['lvl']==1 ? "selected" : ""; ?>>Admin</option>
+        <option value="2" <?= $data['lvl']==2 ? "selected" : ""; ?>>User Biasa</option>
     </select>
 
 

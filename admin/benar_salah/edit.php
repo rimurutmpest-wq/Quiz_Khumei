@@ -22,7 +22,7 @@ if (isset($_POST['update'])){
 }
 ?>
 
-<h2>Edit Soal Pilihan Ganda</h2>
+<h2>Edit Soal Benar/Salah</h2>
 <form action="" method="post">
     <label>Soal:</label><br>
     <textarea name="soalbs" required><?= $data['soalbs']; ?></textarea><br><br>

@@ -8,7 +8,7 @@ if ($_SESSION['lvl'] !=2){
 }
 ?>
 
-<h2>Selamat Datang. <?= $_SESSION['nama_user']; ?> (User)</h2>
+<h2>Selamat Datang. <?= $_SESSION['username']; ?> (User)</h2>
 <a href="kuis.php">Main Kuis Pilihan Ganda</a>
-<a href="kuis.php">Main Kuis Benar/Salah</a>
+<a href="benar_salah.php">Main Kuis Benar/Salah</a>
 <a href="../logout.php">logout</a>

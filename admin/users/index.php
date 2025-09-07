@@ -8,7 +8,7 @@ $result = mysqli_query($conn, "SELECT * FROM user");
 ?>
 
 <h2>Daftar User</h2>
-<a href="tambah.php">Tambah User</a> |
+<a href="add.php">Tambah User</a> |
 <a href="../index.php">Kembali ke Dashboard</a>
 <br><br>
 
@@ -33,7 +33,7 @@ $result = mysqli_query($conn, "SELECT * FROM user");
             <td>".$level."</td>
             <td>
                 <a href ='edit.php?id=".$row['id_user']."'>Edit</a> |
-                <a href ='hapus.php?id=".$row['id_user']."' onclick=\"return confirm('Yakin hapus user ini?')\">Hapus</a> 
+                <a href ='delete.php?id=".$row['id_user']."' onclick=\"return confirm('Yakin hapus user ini?')\">Hapus</a> 
                 </td>
                 </tr>";
     } 

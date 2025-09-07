@@ -20,7 +20,7 @@ $result = mysqli_query($conn, "SELECT * FROM soal");
     <a href="../index.php">Kembali ke Dashboard</a>
     <br><br>
     
-    <table border="1", cellpadding="8", cellspacing"0">
+    <table border="1" cellpadding="8" cellspacing="0">
         <tr>
             <th>No</th>
             <th>Soal</th>
@@ -44,7 +44,7 @@ $result = mysqli_query($conn, "SELECT * FROM soal");
                 <td>".$row['kunjaw']."</td>
                 <td>
                     <a href='edit.php?id=".$row['id_soal']."'>Edit</a> | 
-                    <a href='hapus.php?id=".$row['id_soal']."' onclick=\"return confirm('Yakin hapus soal ini?')\">Hapus</a>
+                    <a href='delete.php?id=".$row['id_soal']."' onclick=\"return confirm('Yakin hapus soal ini?')\">Hapus</a>
                 </td>
             </tr>";
             }

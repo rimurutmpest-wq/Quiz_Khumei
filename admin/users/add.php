@@ -12,7 +12,7 @@ if(isset($_POST['simpan'])){
     $level = $_POST['lvl'];
 
     $sql = "INSERT INTO user (nama_user, username, pass, lvl)
-    VALUES ('$nama_user', '$username', '$pass', '$level')";
+    VALUES ('$nama', '$username', '$pass', '$level')";
     mysqli_query($conn, $sql);
 
     header("Location: index.php");
@@ -22,19 +22,20 @@ if(isset($_POST['simpan'])){
 
 <h2>Tambah User</h2>
 <form action="" method="post">
-    <label for="">Nama</label><br>
-    <textarea name="nama_user" required></textarea><br><br>
-    
-    <label>Benar</label><br>
-    <input type="text" name="benar" required><br><br>
+    <label>Nama:</label><br>
+    <input type="text" name="nama_user" required><br><br>
 
-    <label>Salah</label><br>
-    <input type="text" name="salah" required><br><br>
+    <label>Username:</label><br>
+    <input type="text" name="username" required><br><br>
 
-    <label>Kunci Jawaban:</label><br>
-    <input type="text" name="kunjaw" required><br><br>
+    <label>Password:</label><br>
+    <input type="password" name="pass" required><br><br>
 
-    <button type="submit" name="simpan">Simpan</button>
+    <label>Level:</label><br>
+    <select name="lvl" required>
+        <option value="1">Admin</option>
+        <option value="2">User Biasa</option>
+    </select><br><br>
 </form>
 <br>
 <a href="index.php">Kembali</a>

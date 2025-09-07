@@ -35,8 +35,8 @@ if (isset($_POST['update'])){
 
     <label>Level</label><br>
     <select name="lvl" id="" required>
-        <option value="1"><?= $data['lvl']==1 ? "selected" : ""; ?>Admin</option>
-        <option value="2"><?= $data['lvl']==2 ? "selected" : ""; ?>User Biasa</option>
+        <option value="1"><?= $data['lvl']==1 ? "selected" : ""; ?>>Admin</option>
+        <option value="2"><?= $data['lvl']==2 ? "selected" : ""; ?>>User Biasa</option>
     </select>
 
 

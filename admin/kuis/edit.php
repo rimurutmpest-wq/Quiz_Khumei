@@ -16,7 +16,7 @@ if (isset($_POST['update'])){
     $d = $_POST['jwb_d'];
     $kunjaw = $_POST['kunjaw'];
 
-    $sql = "UPDATE soal SET soal='$soal' jwb_a='$a', jwb_b='$b', jwb_c='$c', jwb_d='$d', kunjaw='$kunjaw' WHERE id_soal=id";
+    $sql = "UPDATE soal SET soal='$soal', jwb_a='$a', jwb_b='$b', jwb_c='$c', jwb_d='$d', kunjaw='$kunjaw' WHERE id_soal=$id";
     mysqli_query($conn, $sql);
 
     header("Location: index.php");

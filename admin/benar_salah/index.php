@@ -1,5 +1,5 @@
 <?php
-include "../config/auth.php";
+include "../../config/auth.php";
 cekLogin();
 cekAdmin();
 
@@ -19,7 +19,7 @@ $result = mysqli_query($conn, "SELECT * FROM soalbs");
     <a href="../index.php">Kembali ke Dashboard</a>
     <br><br>
     
-    <table border="1", cellpadding="8", cellspacing"0">
+    <table border="1" cellpadding="8" cellspacing="0">
         <tr>
             <th>No</th>
             <th>Soal</th>
@@ -39,7 +39,7 @@ $result = mysqli_query($conn, "SELECT * FROM soalbs");
                 <td>".$row['kunjaw']."</td>
                 <td>
                     <a href='edit.php?id=".$row['id_soalbs']."'>Edit</a> | 
-                    <a href='hapus.php?id=".$row['id_soalbs']."' onclick=\"return confirm('Yakin hapus soal ini?')\">Hapus</a>
+                    <a href='delete.php?id=".$row['id_soalbs']."' onclick=\"return confirm('Yakin hapus soal ini?')\">Hapus</a>
                 </td>
             </tr>";
             }

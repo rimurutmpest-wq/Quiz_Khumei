@@ -9,12 +9,14 @@ $result = mysqli_query($conn, "SELECT * FROM soalbs WHERE id_soalbs=$id");
 $data = mysqli_fetch_assoc($result);
 
 if (isset($_POST['update'])){
-    $soal = $_POST['soalbs'];
-    $benar = $_POST['benar'];
-    $salah = $_POST['salah'];
+    $soalbs = $_POST['soalbs'];
+    $a = $_POST['jwb_a'];
+    $b = $_POST['jwb_b'];
+    $c = $_POST['jwb_c'];
+    $d = $_POST['jwb_d'];
     $kunjaw = $_POST['kunjaw'];
 
-    $sql = "UPDATE soalbs SET soalbs='$soal', benar='$benar', salah='$salah', kunjaw='$kunjaw' WHERE id_soalbs=$id";
+    $sql = "UPDATE soalbs SET soalbs='$soalbs', jwb_a='$a', jwb_b='$b', jwb_c='$c', jwb_d='$d', kunjaw='$kunjaw' WHERE id_soalbs=$id";
     mysqli_query($conn, $sql);
 
     header("Location: index.php");
@@ -22,21 +24,57 @@ if (isset($_POST['update'])){
 }
 ?>
 
-<h2>Edit Soal Benar/Salah</h2>
-<form action="" method="post">
-    <label>Soal:</label><br>
-    <textarea name="soalbs" required><?= $data['soalbs']; ?></textarea><br><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Soal Benar/Salah</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
 
-    <label>Benar:</label><br>
-    <input type="text" name="benar" value="<?= $data['benar']; ?>" required><br><br>
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-warning text-dark">
+                    <h2 class="mb-0">Edit Soal Benar/Salah</h2>
+                </div>
+                <div class="card-body">
+                    <form action="" method="post">
+                        <div class="mb-3">
+                            <label class="form-label">soalbs:</label>
+                            <textarea name="soalbs" class="form-control" rows="3" required><?= $data['soalbs']; ?></textarea>
+                        </div>
 
-    <label>Salah:</label><br>
-    <input type="text" name="salah" value="<?= $data['salah']; ?>" required><br><br>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Benar:</label>
+                                <input type="text" name="benar" value="<?= $data['benar']; ?>" class="form-control" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Salah:</label>
+                                <input type="text" name="salaj" value="<?= $data['salah']; ?>" class="form-control" required>
+                            </div>
+                        </div>
 
-    <label>Kunci Jawaban:</label><br>
-    <input type="text" name="kunjaw" value="<?= $data['kunjaw']; ?>" required><br><br>
+                        <div class="mb-4">
+                            <label class="form-label">Kunci Jawaban:</label>
+                            <input type="text" name="kunjaw" value="<?= $data['kunjaw']; ?>" class="form-control" required>
+                        </div>
 
-    <button type="submit" name="update">Update</button>
-</form>
-<br>
-<a href="index.php">Kembali</a>
+                        <div class="d-flex justify-content-between">
+                            <a href="index.php" class="btn btn-secondary">Kembali</a>
+                            <button type="submit" name="update" class="btn btn-warning">Update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -22,28 +22,68 @@ if(isset($_POST['simpan'])){
 }
 ?>
 
-<h2>Tambah Soal Pilihan Ganda</h2>
-<form action="" method="post">
-    <label for="">Soal</label><br>
-    <textarea name="soal" required></textarea><br><br>
-    
-    <label>Jawaban A:</label><br>
-    <input type="text" name="jwb_a" required><br><br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Soal Pilihan Ganda</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
 
-    <label>Jawaban B:</label><br>
-    <input type="text" name="jwb_b" required><br><br>
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-success text-white">
+                    <h2 class="mb-0">Tambah Soal Pilihan Ganda</h2>
+                </div>
+                <div class="card-body">
+                    <form action="" method="post">
+                        <div class="mb-3">
+                            <label class="form-label">Soal</label>
+                            <textarea name="soal" class="form-control" rows="3" required></textarea>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Jawaban A:</label>
+                                <input type="text" name="jwb_a" class="form-control" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Jawaban B:</label>
+                                <input type="text" name="jwb_b" class="form-control" required>
+                            </div>
+                        </div>
 
-    <label>Jawaban C:</label><br>
-    <input type="text" name="jwb_c" required><br><br>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Jawaban C:</label>
+                                <input type="text" name="jwb_c" class="form-control" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Jawaban D:</label>
+                                <input type="text" name="jwb_d" class="form-control" required>
+                            </div>
+                        </div>
 
-    <label>Jawaban D:</label><br>
-    <input type="text" name="jwb_d" required><br><br>
+                        <div class="mb-4">
+                            <label class="form-label">Kunci Jawaban:</label>
+                            <input type="text" name="kunjaw" class="form-control" required>
+                        </div>
 
-    <label>Kunci Jawaban:</label><br>
-    <input type="text" name="kunjaw" required><br><br>
+                        <div class="d-flex justify-content-between">
+                            <a href="index.php" class="btn btn-secondary">Kembali</a>
+                            <button type="submit" name="simpan" class="btn btn-success">Simpan</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-    <button type="submit" name="simpan">Simpan</button>
-</form>
-<br>
-<a href="index.php">Kembali</a>
-    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

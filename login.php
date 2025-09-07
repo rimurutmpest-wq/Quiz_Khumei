@@ -37,20 +37,39 @@ if (isset($_POST['login'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Admin</title>
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    
 </head>
-<body>
-    <h2>Login Admin</h2>
-    <?php if (isset($error)) echo "<p style='color:red;'>$error</p>"; ?>
+<body class="bg-light">
 
-    <form method="POST">
-        <label>Username:</label><br>
-        <input type="text" name="username" required><br><br>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h4>Login</h4>
+                </div>
+                <div class="card-body">
+                    <?php if (isset($error)) echo "<div class='alert alert-danger'>$error</div>"; ?>
+                    <form method="POST">
+                        <div class="mb-3">
+                            <label class="form-label">Username:</label>
+                            <input type="text" name="username" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Password:</label>
+                            <input type="password" name="password" class="form-control" required>
+                        </div>
+                        <button type="submit" name="login" class="btn btn-primary w-100">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-        <label>Password:</label><br>
-        <input type="password" name="password" required><br><br>
-
-        <button type="submit" name="login">Login</button>
-    </form>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

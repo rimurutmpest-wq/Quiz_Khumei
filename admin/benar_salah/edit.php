@@ -10,13 +10,11 @@ $data = mysqli_fetch_assoc($result);
 
 if (isset($_POST['update'])){
     $soalbs = $_POST['soalbs'];
-    $a = $_POST['jwb_a'];
-    $b = $_POST['jwb_b'];
-    $c = $_POST['jwb_c'];
-    $d = $_POST['jwb_d'];
+    $benar = $_POST['benar'];
+    $salah = $_POST['salah'];
     $kunjaw = $_POST['kunjaw'];
 
-    $sql = "UPDATE soalbs SET soalbs='$soalbs', jwb_a='$a', jwb_b='$b', jwb_c='$c', jwb_d='$d', kunjaw='$kunjaw' WHERE id_soalbs=$id";
+    $sql = "UPDATE soalbs SET soalbs='$soalbs', benar='$benar', salah='$salah', kunjaw='$kunjaw' WHERE id_soalbs=$id";
     mysqli_query($conn, $sql);
 
     header("Location: index.php");
@@ -44,24 +42,28 @@ if (isset($_POST['update'])){
                 <div class="card-body">
                     <form action="" method="post">
                         <div class="mb-3">
-                            <label class="form-label">soalbs:</label>
+                            <label class="form-label">Soal:</label>
                             <textarea name="soalbs" class="form-control" rows="3" required><?= $data['soalbs']; ?></textarea>
                         </div>
 
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">Benar:</label>
+                                <label class="form-label">Pilihan Benar:</label>
                                 <input type="text" name="benar" value="<?= $data['benar']; ?>" class="form-control" required>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">Salah:</label>
-                                <input type="text" name="salaj" value="<?= $data['salah']; ?>" class="form-control" required>
+                                <label class="form-label">Pilihan Salah:</label>
+                                <input type="text" name="salah" value="<?= $data['salah']; ?>" class="form-control" required>
                             </div>
                         </div>
 
                         <div class="mb-4">
-                            <label class="form-label">Kunci Jawaban:</label>
-                            <input type="text" name="kunjaw" value="<?= $data['kunjaw']; ?>" class="form-control" required>
+                            <label class="form-label">Kunci Jawaban (benar/salah):</label>
+                            <select name="kunjaw" class="form-select" required>
+                                <option value="">Pilih kunci jawaban...</option>
+                                <option value="benar" <?= ($data['kunjaw'] == 'benar') ? 'selected' : ''; ?>>Benar</option>
+                                <option value="salah" <?= ($data['kunjaw'] == 'salah') ? 'selected' : ''; ?>>Salah</option>
+                            </select>
                         </div>
 
                         <div class="d-flex justify-content-between">

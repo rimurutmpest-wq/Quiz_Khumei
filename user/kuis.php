@@ -115,14 +115,29 @@ $total_soal = mysqli_num_rows($result);
                         $salah = 0;
 
                         foreach($jawaban as $id_soal => $pilihan){
-                            $cek = mysqli_query($conn, "SELECT kunjaw FROM soal WHERE id_soal=$id_soal");
+                            $cek = mysqli_query($conn, "SELECT * FROM soal WHERE id_soal=$id_soal");
                             if($cek && mysqli_num_rows($cek) > 0) {
                                 $data = mysqli_fetch_assoc($cek);
                                 
-                                // Debug: Tampilkan nilai untuk pengecekan
-                                // echo "Soal ID: $id_soal, Pilihan: $pilihan, Kunci: ".$data['kunjaw']."<br>";
+                                // Ambil isi jawaban berdasarkan pilihan user
+                                $jawaban_user = '';
+                                switch($pilihan) {
+                                    case 'A':
+                                        $jawaban_user = $data['jwb_a'];
+                                        break;
+                                    case 'B':
+                                        $jawaban_user = $data['jwb_b'];
+                                        break;
+                                    case 'C':
+                                        $jawaban_user = $data['jwb_c'];
+                                        break;
+                                    case 'D':
+                                        $jawaban_user = $data['jwb_d'];
+                                        break;
+                                }
                                 
-                                if ($pilihan == $data['kunjaw']){
+                                // Bandingkan isi jawaban dengan kunci jawaban
+                                if ($jawaban_user == $data['kunjaw']){
                                     $benar++;
                                 } else {
                                     $salah++;

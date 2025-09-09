@@ -4,17 +4,14 @@ include "../../config/db.php";
 cekLogin();
 cekAdmin();
 
-$result = mysqli_query($conn, "SELECT * FROM soal");
 if(isset($_POST['simpan'])){
-    $soal = $_POST['soal'];
-    $a = $_POST['jwb_a'];
-    $b = $_POST['jwb_b'];
-    $c = $_POST['jwb_c'];
-    $d = $_POST['jwb_d'];
+    $soalbs = $_POST['soalbs'];
+    $benar = $_POST['benar'];
+    $salah = $_POST['salah'];
     $kunjaw = $_POST['kunjaw'];
 
-    $sql = "INSERT INTO soal (soal, jwb_a, jwb_b, jwb_c, jwb_d, kunjaw)
-    VALUES ('$soal', '$a', '$b', '$c', '$d', '$kunjaw')";
+    $sql = "INSERT INTO soalbs (soalbs, benar, salah, kunjaw)
+    VALUES ('$soalbs', '$benar', '$salah', '$kunjaw')";
     mysqli_query($conn, $sql);
 
     header("Location: index.php");
@@ -27,7 +24,7 @@ if(isset($_POST['simpan'])){
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tambah Soal Pilihan Ganda</title>
+    <title>Tambah Soal Benar/Salah</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">
@@ -37,44 +34,37 @@ if(isset($_POST['simpan'])){
         <div class="col-md-8">
             <div class="card shadow">
                 <div class="card-header bg-success text-white">
-                    <h2 class="mb-0">Tambah Soal Pilihan Ganda</h2>
+                    <h2 class="mb-0">Tambah Soal Benar/Salah</h2>
                 </div>
                 <div class="card-body">
                     <form action="" method="post">
                         <div class="mb-3">
                             <label class="form-label">Soal</label>
-                            <textarea name="soal" class="form-control" rows="3" required placeholder="Contoh: Planet terdekat dengan matahari adalah..."></textarea>
+                            <textarea name="soalbs" class="form-control" rows="3" required placeholder="Contoh: Matahari terbit dari arah timur"></textarea>
                         </div>
                         
                         <div class="row">
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">Jawaban A:</label>
-                                <input type="text" name="jwb_a" class="form-control" placeholder="Contoh: Venus" required>
+                                <label class="form-label">Pilihan Benar:</label>
+                                <input type="text" name="benar" class="form-control" placeholder="Contoh: Benar" value="Benar" required>
                             </div>
                             <div class="col-md-6 mb-3">
-                                <label class="form-label">Jawaban B:</label>
-                                <input type="text" name="jwb_b" class="form-control" placeholder="Contoh: Bumi" required>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">Jawaban C:</label>
-                                <input type="text" name="jwb_c" class="form-control" placeholder="Contoh: Merkurius" required>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label">Jawaban D:</label>
-                                <input type="text" name="jwb_d" class="form-control" placeholder="Contoh: Mars" required>
+                                <label class="form-label">Pilihan Salah:</label>
+                                <input type="text" name="salah" class="form-control" placeholder="Contoh: Salah" value="Salah" required>
                             </div>
                         </div>
 
                         <div class="mb-4">
                             <label class="form-label">Kunci Jawaban:</label>
-                            <input type="text" name="kunjaw" class="form-control" placeholder="Contoh: Merkurius" required>
+                            <select name="kunjaw" class="form-select" required>
+                                <option value="">Pilih kunci jawaban...</option>
+                                <option value="benar">Benar</option>
+                                <option value="salah">Salah</option>
+                            </select>
                             <div class="alert alert-info mt-2">
                                 <small>
-                                    <strong>PENTING:</strong> Masukkan <strong>isi dari jawaban yang benar</strong>, bukan huruf A/B/C/D.<br>
-                                    Contoh: Jika jawaban yang benar adalah "C. Merkurius", maka masukkan <strong>"Merkurius"</strong> (tanpa "C." dan tanpa tanda kutip)
+                                    <strong>PENTING:</strong> Pilih apakah pernyataan di atas <strong>benar</strong> atau <strong>salah</strong>.<br>
+                                    Sistem akan mencocokkan jawaban user dengan pilihan yang Anda tentukan di sini.
                                 </small>
                             </div>
                         </div>

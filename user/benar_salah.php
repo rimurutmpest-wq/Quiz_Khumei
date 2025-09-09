@@ -23,23 +23,30 @@ $total_soal = mysqli_num_rows($result);
             const totalSoal = <?= $total_soal; ?>;
             let jawabCount = 0;
             
-            for(let i = 1; i <= totalSoal; i++) {
-                const radios = document.getElementsByName('jawaban[' + document.querySelector('input[type="radio"]').name.match(/\[(\d+)\]/)[1] + ']');
-                let checked = false;
-                for(let j = 0; j < radios.length; j++) {
-                    if(radios[j].checked) {
-                        checked = true;
+            // Kumpulkan semua nama input radio yang unik
+            const radioNames = new Set();
+            const radios = document.querySelectorAll('input[type="radio"]');
+            radios.forEach(radio => {
+                radioNames.add(radio.name);
+            });
+            
+            // Periksa apakah setiap grup radio sudah dijawab
+            radioNames.forEach(name => {
+                const radioGroup = document.querySelectorAll(`input[name="${name}"]`);
+                for(let radio of radioGroup) {
+                    if(radio.checked) {
+                        jawabCount++;
                         break;
                     }
                 }
-                if(checked) jawabCount++;
-            }
+            });
             
             if(jawabCount < totalSoal) {
-                alert('Harap jawab semua soal sebelum submit!');
+                alert(`Harap jawab semua soal! (${jawabCount}/${totalSoal} dijawab)`);
                 return false;
             }
-            return true;
+            
+            return confirm('Yakin ingin submit jawaban?');
         }
     </script>
 </head>
@@ -74,11 +81,11 @@ $total_soal = mysqli_num_rows($result);
                                 <h5 class='card-title text-info'>$no. ".$row['soalbs']."</h5>
                                 <div class='mt-3'>
                                     <div class='form-check mb-2'>
-                                        <input class='form-check-input' type='radio' name='jawaban[".$row['id_soalbs']."]' value='benar' id='bs".$no."a' required>
+                                        <input class='form-check-input' type='radio' name='jawaban[".$row['id_soalbs']."]' value='benar' id='bs".$no."a'>
                                         <label class='form-check-label' for='bs".$no."a'>".$row['benar']."</label>
                                     </div>
                                     <div class='form-check'>
-                                        <input class='form-check-input' type='radio' name='jawaban[".$row['id_soalbs']."]' value='salah' id='bs".$no."b' required>
+                                        <input class='form-check-input' type='radio' name='jawaban[".$row['id_soalbs']."]' value='salah' id='bs".$no."b'>
                                         <label class='form-check-label' for='bs".$no."b'>".$row['salah']."</label>
                                     </div>
                                 </div>
@@ -95,14 +102,18 @@ $total_soal = mysqli_num_rows($result);
                 <?php
                 if(isset($_POST['submit'])){
                     if(isset($_POST['jawaban']) && !empty($_POST['jawaban'])){
-                        $jawaban = $_POST ['jawaban'];
-                        $benar = 0; $salah = 0;
-                        $total_dijawab = count($jawaban);
+                        $jawaban = $_POST['jawaban'];
+                        $benar = 0; 
+                        $salah = 0;
 
                         foreach($jawaban as $id_soalbs => $pilihan){
                             $cek = mysqli_query($conn, "SELECT kunjaw FROM soalbs WHERE id_soalbs=$id_soalbs");
                             if($cek && mysqli_num_rows($cek) > 0) {
                                 $data = mysqli_fetch_assoc($cek);
+                                
+                                // Debug: Tampilkan nilai untuk pengecekan
+                                // echo "Soal ID: $id_soalbs, Pilihan: $pilihan, Kunci: ".$data['kunjaw']."<br>";
+                                
                                 if ($pilihan == $data['kunjaw']){
                                     $benar++;
                                 } else {
@@ -111,55 +122,35 @@ $total_soal = mysqli_num_rows($result);
                             }
                         }
 
-                        $persentase = round(($benar / $total_soal) * 100, 1);
-                        $grade = '';
-                        if($persentase >= 80) $grade = 'A';
-                        elseif($persentase >= 70) $grade = 'B';
-                        elseif($persentase >= 60) $grade = 'C';
-                        elseif($persentase >= 50) $grade = 'D';
-                        else $grade = 'E';
-
                         echo "<div class='card shadow'>
                             <div class='card-header bg-success text-white'>
                                 <h3 class='mb-0'>Hasil Kuis</h3>
                             </div>
                             <div class='card-body text-center'>
                                 <div class='row mb-3'>
-                                    <div class='col-md-3'>
-                                        <div class='p-3 bg-light rounded'>
-                                            <h3 class='text-success'>$benar</h3>
-                                            <p class='mb-0'>Benar</p>
+                                    <div class='col-md-6'>
+                                        <div class='p-4 bg-light rounded'>
+                                            <h2 class='text-success mb-2'>$benar</h2>
+                                            <p class='mb-0 fs-5'>Jawaban Benar</p>
                                         </div>
                                     </div>
-                                    <div class='col-md-3'>
-                                        <div class='p-3 bg-light rounded'>
-                                            <h3 class='text-danger'>$salah</h3>
-                                            <p class='mb-0'>Salah</p>
-                                        </div>
-                                    </div>
-                                    <div class='col-md-3'>
-                                        <div class='p-3 bg-light rounded'>
-                                            <h3 class='text-info'>$persentase%</h3>
-                                            <p class='mb-0'>Persentase</p>
-                                        </div>
-                                    </div>
-                                    <div class='col-md-3'>
-                                        <div class='p-3 bg-light rounded'>
-                                            <h3 class='text-primary'>$grade</h3>
-                                            <p class='mb-0'>Grade</p>
+                                    <div class='col-md-6'>
+                                        <div class='p-4 bg-light rounded'>
+                                            <h2 class='text-danger mb-2'>$salah</h2>
+                                            <p class='mb-0 fs-5'>Jawaban Salah</p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class='mt-3'>
-                                    <a href='benar_salah.php' class='btn btn-primary me-2'>Coba Lagi</a>
-                                    <a href='index.php' class='btn btn-secondary'>Kembali ke Menu</a>
+                                <div class='mt-4'>
+                                    <a href='benar_salah.php' class='btn btn-primary me-3 px-4'>Coba Lagi</a>
+                                    <a href='index.php' class='btn btn-secondary px-4'>Kembali ke Menu</a>
                                 </div>
                             </div>
                         </div>";
                     } else {
-                        echo "<div class='alert alert-warning'>
+                        echo "<div class='alert alert-warning text-center'>
                             <h4>Tidak ada jawaban yang dipilih!</h4>
-                            <p>Silakan pilih jawaban untuk setiap soal.</p>
+                            <p>Silakan pilih jawaban untuk setiap soal sebelum submit.</p>
                         </div>";
                     }
                 }

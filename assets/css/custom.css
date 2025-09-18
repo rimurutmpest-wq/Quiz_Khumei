@@ -1,56 +1,66 @@
-/* Custom Styles for EduGame */
-
-/* Colors from Android XML */
 :root {
     --main-color: #95B9C7;
     --main-hover: #7da5b5;
-    --text-color: #000000;
-    --bg-color: #FFFFFF;
+    --text-color: #ffffff;
+    --bg-color: #071F42;
+    --card-bg: rgba(7, 31, 66, 0.85);
+    --card-border: rgba(149, 185, 199, 0.3);
 }
 
-/* Background */
+
 body {
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23f8f9fa"/><stop offset="100%" style="stop-color:%23e9ecef"/></linearGradient></defs><rect width="1000" height="1000" fill="url(%23bg)"/></svg>') no-repeat center center fixed;
+    background: url('../images/bg-night.png') no-repeat center center fixed;
     background-size: cover;
     color: var(--text-color);
+    min-height: 100vh;
 }
 
-/* Custom Button Styles */
 .btn-custom {
     background-color: var(--main-color);
     border: none;
-    color: var(--text-color);
+    color: #000000;
     transition: all 0.3s ease;
     font-weight: 600;
 }
 
 .btn-custom:hover {
     background-color: var(--main-hover);
-    color: var(--text-color);
+    color: #000000;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
 .btn-custom:focus {
     background-color: var(--main-hover);
-    color: var(--text-color);
+    color: #000000;
     box-shadow: 0 0 0 0.25rem rgba(149, 185, 199, 0.25);
 }
 
-/* Card Styles */
 .card-custom {
-    background: rgba(255, 255, 255, 0.95);
-    border: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px);
     border-radius: 12px;
+    color: var(--text-color);
 }
 
-/* Navbar */
+.card {
+    background: rgba(3, 27, 77, 0.8);
+    color: var(--text-color);
+    border: 1px solid var(--card-border);
+}
+
+.card.mb-4 {
+    background: rgba(3, 27, 77, 0.8);
+    color: var(--text-color);
+    border: 1px solid var(--card-border);
+}
+
 .navbar-custom {
-    background: rgba(255, 255, 255, 0.95) !important;
+    background: rgba(7, 31, 66, 0.9) !important;
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid var(--card-border);
 }
 
 .navbar-custom .navbar-brand {
@@ -64,7 +74,7 @@ body {
 }
 
 .navbar-custom .nav-link:hover {
-    color: var(--main-hover) !important;
+    color: var(--main-color) !important;
 }
 
 .navbar-custom .nav-link.active {
@@ -72,7 +82,6 @@ body {
     font-weight: bold;
 }
 
-/* Custom Radio Button Styles */
 .form-check-input:checked {
     background-color: var(--main-color);
     border-color: var(--main-color);
@@ -83,30 +92,44 @@ body {
     box-shadow: 0 0 0 0.25rem rgba(149, 185, 199, 0.25);
 }
 
-/* Form Controls */
+.form-control {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-color: var(--card-border);
+    color: #000000;
+}
+
 .form-control:focus {
     border-color: var(--main-color);
     box-shadow: 0 0 0 0.25rem rgba(149, 185, 199, 0.25);
+    background-color: rgba(255, 255, 255, 0.98);
+}
+
+.form-select {
+    background-color: rgba(255, 255, 255, 0.95);
+    border-color: var(--card-border);
+    color: #000000;
 }
 
 .form-select:focus {
     border-color: var(--main-color);
     box-shadow: 0 0 0 0.25rem rgba(149, 185, 199, 0.25);
+    background-color: rgba(255, 255, 255, 0.98);
 }
 
-/* Question Cards */
 .question-card {
     transition: all 0.3s ease;
     border-radius: 12px;
     overflow: hidden;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    color: var(--text-color);
 }
 
 .question-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
-/* True/False Options */
 .true-false-option {
     padding: 1rem;
     border-radius: 10px;
@@ -115,19 +138,90 @@ body {
 }
 
 .true-false-option:hover {
-    background-color: rgba(149, 185, 199, 0.1);
+    background-color: rgba(149, 185, 199, 0.2);
     border-color: var(--main-color);
 }
 
-/* Admin Panel Styles */
 .admin-card {
-    background: rgba(255, 255, 255, 0.98);
-    border: none;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
     border-radius: 12px;
+    color: var(--text-color);
 }
 
-/* Animations */
+.hero-title {
+    font-size: 4.5rem;
+    color: var(--text-color);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+    font-weight: bold;
+}
+
+.hero-subtitle {
+    color: var(--text-color);
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+}
+
+.hero-card {
+    background: rgba(7, 31, 66, 0.9) !important;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.hero-fullscreen {
+    height: 100vh;
+    position: relative;
+}
+
+.card-header.bg-primary {
+    background: linear-gradient(135deg, #071F42, #031B4D) !important;
+    border-bottom: 1px solid var(--card-border);
+    color: var(--text-color);
+}
+
+.card-header.bg-success {
+    background: linear-gradient(135deg, #198754, #146c43) !important;
+    border-bottom: 1px solid var(--card-border);
+    color: var(--text-color);
+}
+
+.login-header {
+    background: linear-gradient(135deg, var(--main-color), var(--main-hover)) !important;
+    color: #000000;
+}
+
+.text-muted {
+    color: rgba(255, 255, 255, 0.9) !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+    color: var(--text-color);
+}
+
+.lead {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.stats-card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    transition: all 0.3s ease;
+    color: var(--text-color);
+}
+
+.stats-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -143,23 +237,22 @@ body {
     animation: fadeInUp 0.5s ease-out;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .question-card {
-        margin-bottom: 1rem;
+.animate-bounce {
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
     }
-    
-    .btn-custom {
-        width: 100%;
-        margin-bottom: 0.5rem;
+    40% {
+        transform: translateY(-10px);
     }
-    
-    .true-false-option {
-        margin-bottom: 1rem;
+    60% {
+        transform: translateY(-5px);
     }
 }
 
-/* Loading Animation */
 .loading {
     display: inline-block;
     width: 20px;
@@ -174,24 +267,82 @@ body {
     to { transform: rotate(360deg); }
 }
 
-/* Alert Custom */
 .alert-custom {
     background-color: rgba(149, 185, 199, 0.1);
     border-color: var(--main-color);
     color: var(--text-color);
 }
 
-/* Badge Custom */
-.badge-custom {
-    background-color: var(--main-color);
+.alert-danger {
+    background-color: rgba(220, 53, 69, 0.2);
+    border-color: #dc3545;
     color: var(--text-color);
 }
 
-/* Progress Bar */
+.badge-custom {
+    background-color: var(--main-color);
+    color: #000000;
+}
+
 .progress-custom {
     background-color: rgba(149, 185, 199, 0.2);
 }
 
 .progress-custom .progress-bar {
     background-color: var(--main-color);
+}
+
+.bg-dark {
+    background: rgba(3, 27, 77, 0.95) !important;
+}
+
+.form-label {
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(3, 27, 77, 0.3);
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(149, 185, 199, 0.6);
+    border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(149, 185, 199, 0.8);
+}
+
+@media (max-width: 768px) {
+    .question-card {
+        margin-bottom: 1rem;
+    }
+    
+    .btn-custom {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    
+    .true-false-option {
+        margin-bottom: 1rem;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+}
+
+.scroll-indicator {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.scroll-indicator p {
+    color: var(--text-color);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
 }

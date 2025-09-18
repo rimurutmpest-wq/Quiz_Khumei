@@ -33,7 +33,154 @@ if(isset($_POST['simpan'])){
     <title>EduGame - Tambah Soal Quiz</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="../../assets/css/custom.css" rel="stylesheet">
+    <style>
+        /* Night Theme Consistent dengan index.php */
+        :root {
+            --main-color: #95B9C7;
+            --main-hover: #7da5b5;
+            --text-color: #ffffff;
+            --bg-color: #071F42;
+            --card-bg: rgba(7, 31, 66, 0.85);
+            --card-border: rgba(149, 185, 199, 0.3);
+        }
+
+        body {
+            background: url('../../images/bg-night.png') no-repeat center center fixed;
+            background-size: cover;
+            color: var(--text-color);
+            min-height: 100vh;
+        }
+        
+        .btn-custom {
+            background-color: var(--main-color);
+            border: none;
+            color: #000000;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .btn-custom:hover {
+            background-color: var(--main-hover);
+            color: #000000;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .navbar-custom {
+            background: rgba(7, 31, 66, 0.9) !important;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .navbar-custom .navbar-brand,
+        .navbar-custom .nav-link {
+            color: var(--text-color) !important;
+            font-weight: 500;
+        }
+
+        .navbar-custom .navbar-brand {
+            font-weight: bold;
+        }
+
+        .navbar-custom .nav-link:hover {
+            color: var(--main-color) !important;
+        }
+
+        .admin-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            color: var(--text-color);
+        }
+
+        .card-header.bg-success {
+            background: linear-gradient(135deg, #198754, #146c43) !important;
+            border-bottom: 1px solid var(--card-border);
+            color: var(--text-color);
+        }
+
+        .card-header.bg-info {
+            background: linear-gradient(135deg, #0dcaf0, #0d6efd) !important;
+            border-bottom: 1px solid var(--card-border);
+            color: var(--text-color);
+        }
+
+        .form-label {
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-color: var(--card-border);
+            color: #000000;
+        }
+
+        .form-control:focus {
+            border-color: var(--main-color);
+            box-shadow: 0 0 0 0.25rem rgba(149, 185, 199, 0.25);
+            background-color: rgba(255, 255, 255, 0.98);
+        }
+
+        .form-text {
+            color: rgba(255, 255, 255, 0.8) !important;
+        }
+
+        .alert-success {
+            background-color: rgba(25, 135, 84, 0.2);
+            border-color: #198754;
+            color: var(--text-color);
+        }
+
+        .alert-danger {
+            background-color: rgba(220, 53, 69, 0.2);
+            border-color: #dc3545;
+            color: var(--text-color);
+        }
+
+        .btn-outline-secondary {
+            border-color: var(--card-border);
+            color: var(--text-color);
+        }
+
+        .btn-outline-secondary:hover {
+            background-color: var(--main-color);
+            border-color: var(--main-color);
+            color: #000000;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+            color: var(--text-color);
+        }
+
+        .text-danger {
+            color: #ff6b6b !important;
+        }
+
+        .text-success {
+            color: #51cf66 !important;
+        }
+
+        .invalid-feedback {
+            color: #ff6b6b;
+        }
+
+        .was-validated .form-control:invalid {
+            border-color: #ff6b6b;
+        }
+
+        .was-validated .form-control:valid {
+            border-color: #51cf66;
+        }
+
+        /* List styling */
+        .list-unstyled li {
+            color: var(--text-color);
+        }
+    </style>
 </head>
 <body>
 
@@ -160,6 +307,8 @@ if(isset($_POST['simpan'])){
                             </label>
                             <input type="text" name="kunjaw" class="form-control" required 
                                    placeholder="Masukkan isi jawaban yang benar (bukan A/B/C/D, tapi isi jawabannya)">
+                            <div class="form-text">
+                                <i class="bi bi-info-circle me-1"></i>
                             <div class="form-text">
                                 <i class="bi bi-info-circle me-1"></i>
                                 <strong>Penting:</strong> Masukkan teks lengkap dari jawaban yang benar, 

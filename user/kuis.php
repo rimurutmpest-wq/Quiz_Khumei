@@ -14,53 +14,156 @@ $total_soal = mysqli_num_rows($result);
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
     <style>
+        /* Night Theme Consistent with index.php */
+        :root {
+            --main-color: #95B9C7;
+            --main-hover: #7da5b5;
+            --text-color: #ffffff;
+            --bg-color: #071F42;
+            --card-bg: rgba(7, 31, 66, 0.85);
+            --card-border: rgba(149, 185, 199, 0.3);
+        }
+
         body {
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23f8f9fa"/><stop offset="100%" style="stop-color:%23e9ecef"/></linearGradient></defs><rect width="1000" height="1000" fill="url(%23bg)"/></svg>') no-repeat center center fixed;
+            background: url('../images/bg-night.png') no-repeat center center fixed;
             background-size: cover;
-            color: #000000;
+            color: var(--text-color);
+            min-height: 100vh;
         }
         
         .btn-custom {
-            background-color: #95B9C7;
+            background-color: var(--main-color);
             border: none;
             color: #000000;
             transition: all 0.3s ease;
+            font-weight: 600;
         }
         
         .btn-custom:hover {
-            background-color: #7da5b5;
+            background-color: var(--main-hover);
             color: #000000;
             transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
         
         .card-custom {
-            background: rgba(255, 255, 255, 0.95);
-            border: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            color: var(--text-color);
         }
         
         .navbar-custom {
-            background: rgba(255, 255, 255, 0.95) !important;
+            background: rgba(7, 31, 66, 0.9) !important;
             backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .navbar-custom .navbar-brand,
+        .navbar-custom .nav-link {
+            color: var(--text-color) !important;
+            font-weight: 500;
+        }
+
+        .navbar-custom .navbar-brand {
+            font-weight: bold;
+        }
+
+        .navbar-custom .nav-link:hover,
+        .navbar-custom .nav-link.active {
+            color: var(--main-color) !important;
+        }
+
+        .navbar-custom .nav-link.active {
+            font-weight: bold;
         }
         
         /* Custom Radio Button Styles */
         .form-check-input:checked {
-            background-color: #95B9C7;
-            border-color: #95B9C7;
+            background-color: var(--main-color);
+            border-color: var(--main-color);
         }
         
         .form-check-input:focus {
-            border-color: #95B9C7;
+            border-color: var(--main-color);
             box-shadow: 0 0 0 0.25rem rgba(149, 185, 199, 0.25);
         }
         
         .question-card {
             transition: all 0.3s ease;
+            border-radius: 12px;
+            overflow: hidden;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            color: var(--text-color);
         }
         
         .question-card:hover {
             transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .card-header.bg-primary {
+            background: linear-gradient(135deg, #071F42, #031B4D) !important;
+            border-bottom: 1px solid var(--card-border);
+            color: var(--text-color);
+        }
+
+        .card-header.bg-success {
+            background: linear-gradient(135deg, #198754, #146c43) !important;
+            border-bottom: 1px solid var(--card-border);
+            color: var(--text-color);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+            color: var(--text-color);
+        }
+
+        .text-muted {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+
+        .btn-outline-secondary {
+            border-color: var(--card-border);
+            color: var(--text-color);
+        }
+
+        .btn-outline-secondary:hover {
+            background-color: var(--main-color);
+            border-color: var(--main-color);
+            color: #000000;
+        }
+
+        /* Form check labels */
+        .form-check-label {
+            color: var(--text-color);
+        }
+
+        /* Badge styles */
+        .badge.bg-light {
+            background-color: rgba(255, 255, 255, 0.2) !important;
+            color: var(--text-color);
+        }
+
+        .badge.bg-primary {
+            background-color: var(--main-color) !important;
+            color: #000000;
+        }
+
+        /* Alert styling */
+        .alert.alert-warning {
+            background-color: rgba(255, 193, 7, 0.2);
+            border-color: #ffc107;
+            color: var(--text-color);
+        }
+
+        /* Result cards styling */
+        .bg-light.rounded {
+            background-color: rgba(255, 255, 255, 0.1) !important;
+            border: 1px solid var(--card-border);
         }
     </style>
     <script>

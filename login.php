@@ -41,31 +41,45 @@ if (isset($_POST['login'])){
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
     <style>
+        /* Night Theme Consistent with index.php */
+        :root {
+            --main-color: #95B9C7;
+            --main-hover: #7da5b5;
+            --text-color: #ffffff;
+            --bg-color: #071F42;
+            --card-bg: rgba(7, 31, 66, 0.85);
+            --card-border: rgba(149, 185, 199, 0.3);
+        }
+
         body {
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23f8f9fa"/><stop offset="100%" style="stop-color:%23e9ecef"/></linearGradient></defs><rect width="1000" height="1000" fill="url(%23bg)"/></svg>') no-repeat center center fixed;
+            background: url('images/bg-night.png') no-repeat center center fixed;
             background-size: cover;
-            color: #000000;
+            color: var(--text-color);
             min-height: 100vh;
         }
         
         .btn-custom {
-            background-color: #95B9C7;
+            background-color: var(--main-color);
             border: none;
             color: #000000;
             transition: all 0.3s ease;
+            font-weight: 600;
         }
         
         .btn-custom:hover {
-            background-color: #7da5b5;
+            background-color: var(--main-hover);
             color: #000000;
             transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
         }
         
         .card-custom {
-            background: rgba(255, 255, 255, 0.95);
-            border: none;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
             backdrop-filter: blur(10px);
+            border-radius: 12px;
+            color: var(--text-color);
         }
         
         .login-container {
@@ -75,14 +89,56 @@ if (isset($_POST['login'])){
             justify-content: center;
         }
         
+        .form-control {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-color: var(--card-border);
+            color: #000000;
+        }
+        
         .form-control:focus {
-            border-color: #95B9C7;
+            border-color: var(--main-color);
             box-shadow: 0 0 0 0.25rem rgba(149, 185, 199, 0.25);
+            background-color: rgba(255, 255, 255, 0.98);
         }
         
         .login-header {
-            background: linear-gradient(135deg, #95B9C7, #7da5b5);
+            background: linear-gradient(135deg, var(--main-color), var(--main-hover));
             color: #000000;
+        }
+
+        .form-label {
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        .btn-outline-secondary {
+            border-color: var(--card-border);
+            color: var(--text-color);
+        }
+
+        .btn-outline-secondary:hover {
+            background-color: var(--main-color);
+            border-color: var(--main-color);
+            color: #000000;
+        }
+
+        .alert-danger {
+            background-color: rgba(220, 53, 69, 0.2);
+            border-color: #dc3545;
+            color: var(--text-color);
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+            color: inherit;
+        }
+
+        .text-muted {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+
+        small.text-muted {
+            color: rgba(255, 255, 255, 0.8) !important;
         }
     </style>
 </head>

@@ -8,9 +8,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
     <style>
         body {
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><defs><linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%23f8f9fa"/><stop offset="100%" style="stop-color:%23e9ecef"/></linearGradient></defs><rect width="1000" height="1000" fill="url(%23bg)"/></svg>') no-repeat center center fixed;
+            background: url('../images/bg-night.png') no-repeat center center fixed;
             background-size: cover;
-            color: #000000;
+            color: #ffffff;
+            min-height: 100vh;
         }
         
         .btn-custom {
@@ -27,14 +28,125 @@
         }
         
         .card-custom {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(7, 31, 66, 0.85);
             border: none;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            color: #ffffff;
         }
         
         .navbar-custom {
-            background: rgba(255, 255, 255, 0.95) !important;
+            background: rgba(7, 31, 66, 0.9) !important;
             backdrop-filter: blur(10px);
+        }
+        
+        .navbar-custom .navbar-brand,
+        .navbar-custom .nav-link {
+            color: #ffffff !important;
+        }
+        
+        .navbar-custom .nav-link:hover,
+        .navbar-custom .nav-link.active {
+            color: #95B9C7 !important;
+        }
+        
+        .hero-title {
+            font-size: 4.5rem;
+            color: #ffffff;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            font-weight: bold;
+        }
+        
+        .hero-subtitle {
+            color: #ffffff;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+        }
+        
+        .card.mb-4 {
+            background: rgba(3, 27, 77, 0.8);
+            color: #ffffff;
+            border: 1px solid rgba(149, 185, 199, 0.3);
+        }
+        
+        .card-header.bg-primary {
+            background: linear-gradient(135deg, #071F42, #031B4D) !important;
+            border-bottom: 1px solid rgba(149, 185, 199, 0.3);
+        }
+        
+        .text-muted {
+            color: rgba(255, 255, 255, 0.9) !important;
+        }
+        
+        .bg-dark {
+            background: rgba(3, 27, 77, 0.95) !important;
+        }
+        
+        /* Styling untuk stats cards */
+        .stats-card {
+            background: rgba(7, 31, 66, 0.9);
+            border: 1px solid rgba(149, 185, 199, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .stats-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* Text shadows untuk readability */
+        h1, h2, h3, h4, h5, h6 {
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+            color: #ffffff;
+        }
+        
+        .lead {
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+        }
+        
+        /* Hero Fullscreen */
+        .hero-fullscreen {
+            height: 100vh;
+            position: relative;
+        }
+        
+        .hero-card {
+            background: rgba(7, 31, 66, 0.9) !important;
+            border: 1px solid rgba(149, 185, 199, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* Bounce animation for scroll indicator */
+        .animate-bounce {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        /* Custom scrollbar untuk night theme */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: rgba(3, 27, 77, 0.3);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: rgba(149, 185, 199, 0.6);
+            border-radius: 6px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(149, 185, 199, 0.8);
         }
     </style>
 </head>
@@ -80,30 +192,40 @@
 
 <!-- Main Content -->
 <div class="container mt-5 pt-4">
-    <!-- Hero Section -->
-    <div class="row mb-5">
-        <div class="col-12">
-            <div class="card card-custom text-center py-5">
-                <div class="card-body">
-                    <h1 class="display-4 fw-bold mb-4">
-                        <i class="bi bi-mortarboard text-primary me-3"></i>
-                        Selamat Datang di EduGame!
-                    </h1>
-                    <p class="lead mb-4">Platform pembelajaran interaktif dengan kuis menarik untuk menguji pengetahuan Anda</p>
+    <!-- Hero Section - Fullscreen -->
+    <div class="hero-fullscreen d-flex align-items-center justify-content-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card card-custom text-center py-5 hero-card">
+                        <div class="card-body">
+                            <h1 class="hero-title mb-4">
+                                <i class="bi bi-mortarboard text-primary me-3"></i>
+                                Selamat Datang di EduGame!
+                            </h1>
+                            <p class="lead hero-subtitle mb-5">Platform pembelajaran interaktif dengan kuis menarik untuk menguji pengetahuan Anda</p>
+                            
+                            <div class="row justify-content-center">
+                                <div class="col-md-3 mb-3">
+                                    <a href="kuis.php" class="btn btn-custom btn-lg w-100 py-3">
+                                        <i class="bi bi-question-circle-fill me-2"></i>
+                                        <strong>Mulai Quiz</strong>
+                                    </a>
+                                </div>
+                                <div class="col-md-3 mb-3">
+                                    <a href="benar_salah.php" class="btn btn-custom btn-lg w-100 py-3">
+                                        <i class="bi bi-check-circle-fill me-2"></i>
+                                        <strong>True or False</strong>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     
-                    <div class="row justify-content-center mt-4">
-                        <div class="col-md-3 mb-3">
-                            <a href="kuis.php" class="btn btn-custom btn-lg w-100 py-3">
-                                <i class="bi bi-question-circle-fill me-2"></i>
-                                <strong>Mulai Quiz</strong>
-                            </a>
-                        </div>
-                        <div class="col-md-3 mb-3">
-                            <a href="benar_salah.php" class="btn btn-custom btn-lg w-100 py-3">
-                                <i class="bi bi-check-circle-fill me-2"></i>
-                                <strong>True or False</strong>
-                            </a>
-                        </div>
+                    <!-- Scroll down indicator -->
+                    <div class="scroll-indicator mt-4">
+                        <p class="text-white mb-2">Gulir ke bawah untuk melihat materi</p>
+                        <i class="bi bi-chevron-double-down text-white animate-bounce" style="font-size: 2rem;"></i>
                     </div>
                 </div>
             </div>
@@ -199,8 +321,8 @@
                                     </p>
                                     <ul>
                                         <li>Tata bahasa dan ejaan</li>
-                                        <li>Kosakata dan sinonim</li>
                                         <li>Pantun dan peribahasa</li>
+                                        <li>Kosakata dan sinonim</li>
                                         <li>Karya sastra Indonesia</li>
                                     </ul>
                                 </div>
@@ -215,7 +337,7 @@
     <!-- Quick Stats -->
     <div class="row mb-5">
         <div class="col-md-4">
-            <div class="card card-custom text-center">
+            <div class="card stats-card text-center">
                 <div class="card-body">
                     <i class="bi bi-question-circle-fill text-primary" style="font-size: 3rem;"></i>
                     <h5 class="mt-3">Quiz Interaktif</h5>
@@ -224,7 +346,7 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card card-custom text-center">
+            <div class="card stats-card text-center">
                 <div class="card-body">
                     <i class="bi bi-check-circle-fill text-success" style="font-size: 3rem;"></i>
                     <h5 class="mt-3">True or False</h5>
@@ -233,7 +355,7 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="card card-custom text-center">
+            <div class="card stats-card text-center">
                 <div class="card-body">
                     <i class="bi bi-trophy-fill text-warning" style="font-size: 3rem;"></i>
                     <h5 class="mt-3">Hasil Instan</h5>

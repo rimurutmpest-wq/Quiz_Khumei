@@ -120,7 +120,7 @@ $total_users = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM user"));
                 <div class="card-body">
                     <div class="row g-3">
                         <div class="col-md-6 col-lg-3">
-                            <a href="kuis/index.php" class="btn btn-custom w-100 py-4 text-decoration-none">
+                            <a href="kuis/index.php" class="btn btn-outline-secondary w-100 py-4 text-decoration-none">
                                 <div class="text-center">
                                     <i class="bi bi-question-circle-fill" style="font-size: 2.5rem;"></i>
                                     <h5 class="mt-3 mb-1">Kelola Quiz</h5>
@@ -129,7 +129,7 @@ $total_users = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM user"));
                             </a>
                         </div>
                         <div class="col-md-6 col-lg-3">
-                            <a href="benar_salah/index.php" class="btn btn-custom w-100 py-4 text-decoration-none">
+                            <a href="benar_salah/index.php" class="btn btn-outline-secondary w-100 py-4 text-decoration-none">
                                 <div class="text-center">
                                     <i class="bi bi-check-circle-fill" style="font-size: 2.5rem;"></i>
                                     <h5 class="mt-3 mb-1">Kelola True/False</h5>
@@ -138,7 +138,7 @@ $total_users = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM user"));
                             </a>
                         </div>
                         <div class="col-md-6 col-lg-3">
-                            <a href="users/index.php" class="btn btn-custom w-100 py-4 text-decoration-none">
+                            <a href="users/index.php" class="btn btn-outline-secondary w-100 py-4 text-decoration-none">
                                 <div class="text-center">
                                     <i class="bi bi-people-fill" style="font-size: 2.5rem;"></i>
                                     <h5 class="mt-3 mb-1">Kelola Users</h5>

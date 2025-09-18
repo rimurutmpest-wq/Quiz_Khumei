@@ -6,149 +6,7 @@
     <title>EduGame - Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
-    <style>
-        body {
-            background: url('../images/bg-night.png') no-repeat center center fixed;
-            background-size: cover;
-            color: #ffffff;
-            min-height: 100vh;
-        }
-        
-        .btn-custom {
-            background-color: #95B9C7;
-            border: none;
-            color: #000000;
-            transition: all 0.3s ease;
-        }
-        
-        .btn-custom:hover {
-            background-color: #7da5b5;
-            color: #000000;
-            transform: translateY(-2px);
-        }
-        
-        .card-custom {
-            background: rgba(7, 31, 66, 0.85);
-            border: none;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            color: #ffffff;
-        }
-        
-        .navbar-custom {
-            background: rgba(7, 31, 66, 0.9) !important;
-            backdrop-filter: blur(10px);
-        }
-        
-        .navbar-custom .navbar-brand,
-        .navbar-custom .nav-link {
-            color: #ffffff !important;
-        }
-        
-        .navbar-custom .nav-link:hover,
-        .navbar-custom .nav-link.active {
-            color: #95B9C7 !important;
-        }
-        
-        .hero-title {
-            font-size: 4.5rem;
-            color: #ffffff;
-            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
-            font-weight: bold;
-        }
-        
-        .hero-subtitle {
-            color: #ffffff;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
-        }
-        
-        .card.mb-4 {
-            background: rgba(3, 27, 77, 0.8);
-            color: #ffffff;
-            border: 1px solid rgba(149, 185, 199, 0.3);
-        }
-        
-        .card-header.bg-primary {
-            background: linear-gradient(135deg, #071F42, #031B4D) !important;
-            border-bottom: 1px solid rgba(149, 185, 199, 0.3);
-        }
-        
-        .text-muted {
-            color: rgba(255, 255, 255, 0.9) !important;
-        }
-        
-        .bg-dark {
-            background: rgba(3, 27, 77, 0.95) !important;
-        }
-        
-        /* Styling untuk stats cards */
-        .stats-card {
-            background: rgba(7, 31, 66, 0.9);
-            border: 1px solid rgba(149, 185, 199, 0.2);
-            transition: all 0.3s ease;
-        }
-        
-        .stats-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
-        }
-        
-        /* Text shadows untuk readability */
-        h1, h2, h3, h4, h5, h6 {
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
-            color: #ffffff;
-        }
-        
-        .lead {
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
-        }
-        
-        /* Hero Fullscreen */
-        .hero-fullscreen {
-            height: 100vh;
-            position: relative;
-        }
-        
-        .hero-card {
-            background: rgba(7, 31, 66, 0.9) !important;
-            border: 1px solid rgba(149, 185, 199, 0.3);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
-        }
-        
-        /* Bounce animation for scroll indicator */
-        .animate-bounce {
-            animation: bounce 2s infinite;
-        }
-        
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
-            }
-        }
-        
-        /* Custom scrollbar untuk night theme */
-        ::-webkit-scrollbar {
-            width: 12px;
-        }
-        
-        ::-webkit-scrollbar-track {
-            background: rgba(3, 27, 77, 0.3);
-        }
-        
-        ::-webkit-scrollbar-thumb {
-            background: rgba(149, 185, 199, 0.6);
-            border-radius: 6px;
-        }
-        
-        ::-webkit-scrollbar-thumb:hover {
-            background: rgba(149, 185, 199, 0.8);
-        }
-    </style>
+    <link href="../assets/css/custom.css" rel="stylesheet">
 </head>
 <body>
 
@@ -238,7 +96,7 @@
             <div class="card card-custom mb-4">
                 <div class="card-header bg-primary text-white">
                     <h2 class="mb-0">
-                        <i class="bi bi-book-fill me-2"></i>Materi Pembelajaran
+                        <i class="bi bi-stars me-2"></i>Tata Surya
                     </h2>
                 </div>
                 <div class="card-body">
@@ -247,19 +105,14 @@
                             <div class="card mb-4">
                                 <div class="card-body">
                                     <h5 class="card-title">
-                                        <i class="bi bi-lightbulb-fill text-warning me-2"></i>
-                                        Pengetahuan Umum
+                                        <i class="bi bi-sun-fill text-warning me-2"></i>
+                                        Matahari
                                     </h5>
                                     <p class="card-text">
-                                        Pengetahuan umum adalah kumpulan informasi dan fakta yang luas tentang berbagai topik dalam kehidupan sehari-hari. 
-                                        Pengetahuan ini mencakup sejarah, geografi, sains, budaya, olahraga, dan banyak bidang lainnya.
+                                        Matahari merupakan sebuah bintang atau benda langit yang dapat menghasilkan cahaya sendiri. 
+                                        Oleh karena tata letaknya yang dekat dengan bumi, cahaya matahari tampak lebih terang dan ukurannya tampak lebih besar 
+                                        dibandingkan dengan berjuta-juta bintang lainnya.
                                     </p>
-                                    <ul>
-                                        <li>Sejarah dunia dan peradaban</li>
-                                        <li>Geografi dan negara-negara</li>
-                                        <li>Sains dan teknologi</li>
-                                        <li>Budaya dan tradisi</li>
-                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -268,19 +121,14 @@
                             <div class="card mb-4">
                                 <div class="card-body">
                                     <h5 class="card-title">
-                                        <i class="bi bi-globe text-info me-2"></i>
-                                        Wawasan Nusantara
+                                        <i class="bi bi-circle-fill text-secondary me-2"></i>
+                                        Merkurius
                                     </h5>
                                     <p class="card-text">
-                                        Indonesia adalah negara kepulauan terbesar di dunia dengan lebih dari 17.000 pulau. 
-                                        Negara ini memiliki kekayaan budaya, bahasa, dan tradisi yang beragam dari Sabang sampai Merauke.
+                                        Planet Merkurius adalah planet yang paling dekat dengan Matahari dan merupakan planet terkecil dalam tata surya. 
+                                        Lapisan atmosfer planet Merkurius sangat tipis sehingga dapat melelehkan logam timah. 
+                                        Planet ini tidak mempunyai udara dan air.
                                     </p>
-                                    <ul>
-                                        <li>34 Provinsi di Indonesia</li>
-                                        <li>Kebudayaan dan adat istiadat</li>
-                                        <li>Bahasa daerah dan nasional</li>
-                                        <li>Kekayaan alam Indonesia</li>
-                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -291,19 +139,13 @@
                             <div class="card mb-4">
                                 <div class="card-body">
                                     <h5 class="card-title">
-                                        <i class="bi bi-calculator text-success me-2"></i>
-                                        Matematika Dasar
+                                        <i class="bi bi-circle-fill text-danger me-2"></i>
+                                        Venus
                                     </h5>
                                     <p class="card-text">
-                                        Matematika adalah ilmu yang mempelajari struktur, ruang, dan perubahan. 
-                                        Dalam kehidupan sehari-hari, matematika membantu kita memecahkan masalah logis dan numerik.
+                                        Planet terdekat kedua dengan matahari adalah Venus. Ukuran Venus hampir sama dengan Bumi sehingga 
+                                        orang sering menjulukinya sebagai kembaran Bumi. Venus merupakan planet terpanas dan terlihat paling terang dalam tata surya.
                                     </p>
-                                    <ul>
-                                        <li>Operasi hitung dasar</li>
-                                        <li>Geometri dan pengukuran</li>
-                                        <li>Pecahan dan persentase</li>
-                                        <li>Statistik sederhana</li>
-                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -312,19 +154,116 @@
                             <div class="card mb-4">
                                 <div class="card-body">
                                     <h5 class="card-title">
-                                        <i class="bi bi-translate text-danger me-2"></i>
-                                        Bahasa Indonesia
+                                        <i class="bi bi-globe text-success me-2"></i>
+                                        Bumi
                                     </h5>
                                     <p class="card-text">
-                                        Bahasa Indonesia adalah bahasa resmi dan persatuan Republik Indonesia. 
-                                        Kemampuan berbahasa Indonesia yang baik sangat penting untuk komunikasi formal dan informal.
+                                        Bumi merupakan planet ketiga dari Matahari. Bumi adalah planet satu-satunya yang dihuni oleh makhluk hidup. 
+                                        Bumi memiliki atmosfer yang terdiri dari nitrogen, oksigen, karbon dioksida, dan uap air. 
+                                        Atmosfer melindungi kita dari sinar ultraviolet.
                                     </p>
-                                    <ul>
-                                        <li>Tata bahasa dan ejaan</li>
-                                        <li>Pantun dan peribahasa</li>
-                                        <li>Kosakata dan sinonim</li>
-                                        <li>Karya sastra Indonesia</li>
-                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <i class="bi bi-moon-fill text-light me-2"></i>
+                                        Bulan
+                                    </h5>
+                                    <p class="card-text">
+                                        Bulan adalah satu-satunya satelit alami Bumi dan merupakan satelit alami terbesar ke-5 di Tata Surya. 
+                                        Cahaya Bulan berasal dari cahaya matahari yang dipantulkan. Di bulan tidak terdapat udara atau air. 
+                                        Banyak kawah yang disebabkan oleh hantaman komet.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <i class="bi bi-circle-fill text-danger me-2" style="color: #CD5C5C !important;"></i>
+                                        Mars
+                                    </h5>
+                                    <p class="card-text">
+                                        Mars merupakan planet keempat dari Matahari. Planet Mars sering disebut planet merah karena tampak kemerahan. 
+                                        Warna merah tersebut berasal dari debu yang banyak diterbangkan angin. 
+                                        Kawah olympus Mars merupakan kawah terbesar di tata surya.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <i class="bi bi-circle-fill text-warning me-2" style="color: #FFA500 !important;"></i>
+                                        Jupiter
+                                    </h5>
+                                    <p class="card-text">
+                                        Jupiter merupakan planet terbesar dalam tata surya. Besar Jupiter 11 kali besar Bumi. 
+                                        Suhu Jupiter sangat dingin karena jauh dari matahari. Jupiter memiliki 16 satelit dengan satelit terbesar 
+                                        secara urut adalah Ganymede, Callisto, dan Europa.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <i class="bi bi-circle-fill text-warning me-2" style="color: #DAA520 !important;"></i>
+                                        Saturnus
+                                    </h5>
+                                    <p class="card-text">
+                                        Saturnus adalah planet terbesar kedua dalam tata surya. Besar saturnus 9 kali ukuran Bumi. 
+                                        Saturnus merupakan planet yang sangat indah karena memiliki tiga cincin pada bagian atmosfernya. 
+                                        Planet Saturnus memiliki 31 buah satelit, Titan merupakan yang terbesar.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <i class="bi bi-circle-fill text-info me-2" style="color: #4FD0E7 !important;"></i>
+                                        Uranus
+                                    </h5>
+                                    <p class="card-text">
+                                        Uranus tampak berwarna hijau kebiruan. Atmosfer uranus tersusun dari hidrogen, helium, dan metana. 
+                                        Uranus berotasi dari timur ke barat. Namun rotasinya tidak searah jarum jam. 
+                                        Uranus memiliki 27 satelit. Satelit terbesar yaitu Miranda.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="card mb-4">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                        <i class="bi bi-circle-fill text-primary me-2"></i>
+                                        Neptunus
+                                    </h5>
+                                    <p class="card-text">
+                                        Neptunus tampak seperti Uranus karena ukurannya yang hampir sama. Neptunus tampak berwarna kebiruan. 
+                                        Neptunus juga dikelilingi cincin debu. Neptunus memiliki 4 cincin dan 11 satelit. 
+                                        Dua satelit yang paling besar adalah Triton dan Nereid.
+                                    </p>
                                 </div>
                             </div>
                         </div>
